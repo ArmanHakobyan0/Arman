@@ -1,12 +1,8 @@
 package seleniumGoogle.test;
-
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import seleniumGoogle.base.SeleniumTask;
 import seleniumGoogle.pages.autoPage;
-
-import java.util.List;
 
 public class RunTest extends SeleniumTask {
     autoPage autoPage;
@@ -24,12 +20,7 @@ public class RunTest extends SeleniumTask {
         autoPage.enterSearchButton();
         autoPage.countOfResult();
       //  Assert.assertTrue(autoPage.getCountOfResult() == 1, "ERROR");
-        autoPage.priceCarGetText();
+        Assert.assertTrue(autoPage.priceCarGetText(), "we dont have 67000$ car");
     }
 }
 
-//    public int getCountOfResult() {
-//        List<WebElement> count = driver.findElements(LIST);
-//        int counts = count.size();
-//        return counts;
-//    }

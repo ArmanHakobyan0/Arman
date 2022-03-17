@@ -7,11 +7,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class autoPage  {
+public class autoPage {
     WebDriver driver;
 
     @FindBy(css = "div > div.a4bIc > input")
@@ -42,7 +43,7 @@ public class autoPage  {
 
     //private final By LIST = By.cssSelector("#search-result > .card");
     @FindBy(css = "div.card-action > div > span")
-    WebElement priceCar;
+    List<WebElement> listCarPrice;
 
     String actualPriceCar = "$ 67 000";
 
@@ -88,11 +89,19 @@ public class autoPage  {
     }
 
     public void countOfResult() {
-        Assert.assertEquals(1, list.size());
+        Assert.assertEquals(3, list.size());
     }
 
-    public void priceCarGetText() {
-        Assert.assertEquals(actualPriceCar, priceCar.getText());
+    public boolean priceCarGetText() {
+
+        for (int i =0;i<listCarPrice.size();i++){
+            System.out.println(listCarPrice.get(i).getText());
+            if(listCarPrice.get(i).getText().equals(actualPriceCar)){
+                System.out.println("sssssssss");
+                return true;
+            }
+        }
+        return false;
     }
 
 
