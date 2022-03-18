@@ -1,8 +1,8 @@
-package seleniumGoogle.test;
+package AutoAmTest.test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import seleniumGoogle.base.SeleniumTask;
-import seleniumGoogle.pages.autoPage;
+import AutoAmTest.base.SeleniumTask;
+import AutoAmTest.pages.autoPage;
 
 public class RunTest extends SeleniumTask {
     autoPage autoPage;
@@ -19,7 +19,6 @@ public class RunTest extends SeleniumTask {
         autoPage.putParam4();
         autoPage.enterSearchButton();
         autoPage.countOfResult();
-      //  Assert.assertTrue(autoPage.getCountOfResult() == 1, "ERROR");
         Assert.assertTrue(autoPage.priceCarGetText(), "we dont have 67000$ car");
     }
 }
